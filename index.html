@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vue Basics</title>
+    <title>Monster Slayer</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap"
       rel="stylesheet"
@@ -14,7 +14,7 @@
   </head>
   <body>
     <header>
-      <h1>Monster Slayer 1.0.1</h1>
+      <h1>Monster Slayer 1.0.2</h1>
     </header>
     <div id="game">
       <section id="monster" class="container">
@@ -48,6 +48,7 @@
           <li v-for="logMessage in logMessages">
             <span :class="{'log--player': logMessage.actionBy === 'player', 'log--monster': logMessage.actionBy === 'monster'}">{{ logMessage.actionBy === 'player' ? 'Player' : 'Monster' }}</span>
             <span v-if="logMessage.actionType === 'heal'"> heals himself for <span class="log--heal">{{ logMessage.actionValue }} live</span></span>
+            <span v-else-if="logMessage.actionType === 'surrender'"> has given up</span></span>
             <span v-else> attacks and deals <span class="log--damage">{{ logMessage.actionValue }} damage</span></span>
           </li>
         </ul>
